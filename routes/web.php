@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Phones;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +15,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $phones = Phones::get();
+    return view('welcome', compact('phones'));
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::prefix('purchasing-process')
+    ->name('purchasing-process.')
+    ->group(function () {
+        // formulario de compra -----
+        Route::get('checkout/{slug}', function ($slug) {
+            $phone = Phones::where('slug', $slug)->first();
+            return view('checkout.checkout', compact('phone'));
+        });
+    });

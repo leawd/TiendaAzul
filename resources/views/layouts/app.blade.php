@@ -15,7 +15,8 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/sass/app.scss', 'resources/js/app.js'])
+
 </head>
 
 <body>
@@ -23,7 +24,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-primary shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="images/logo.svg" alt="TiendaAzul" title="TiendaAzul" height="50">
+                    <img src="{{ asset('images/logo.svg') }}" alt="TiendaAzul" title="TiendaAzul" height="50">
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

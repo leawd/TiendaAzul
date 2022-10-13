@@ -15,5 +15,7 @@ class Phones extends Model
         'title',
         'description',
         'price',
+        'slug',
+        'image',
     ];
 }

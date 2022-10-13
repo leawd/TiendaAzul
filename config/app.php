@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Facade;
 
 return [
@@ -212,4 +213,10 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 
+    'routes' => [
+        'images' => [
+            'base'      => 'images/',
+            'phones'    => Config::get('app.routes.images.base') . 'phones/',
+        ],
+    ],
 ];
